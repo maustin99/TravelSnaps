@@ -6,6 +6,10 @@
 <% @users.each do |u| %>
 
 <li> <%= link_to(u.name, user_path(u)) %></li>
+<%= link_to("Delete" , user_path(u), method: "delete", data: {confirm: 'Are you sure?' }) %>
+<br>
+<br>
+
 
 <% end %>
 </ul>

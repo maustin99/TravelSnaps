@@ -7,7 +7,7 @@ class PicturesController < ApplicationController
 
   def show
 
-    @pictures = Picture.find(params[:id])
+    @picture = Picture.find(params[:id])
 
   end
 
@@ -20,21 +20,23 @@ class PicturesController < ApplicationController
   def create
 
     @picture = Picture.new(picture_params)    
-    @picture.user = User.find(2)
+    @picture.user = current_user   # <<==== FIX HERE
+    # same as:
+    # @picture = current_user.pictures.new(picture_params)
   
-        if @picture.save    #checks if CREATE was successfull (TRUE)
+    if @picture.save    #checks if CREATE was successfull (TRUE)
 
-          redirect_to pictures_path
-        else
-          redirect_to new_picture_path   #if failed reutrn to NEW form 
-        end # end IF
+      redirect_to pictures_path
+    else
+      redirect_to new_picture_path   #if failed reutrn to NEW form 
+    end # end IF
 
 
   end
 
   def edit
 
-    @pictures = Picture.find(params[:id])
+    @picture = Picture.find(params[:id])
 
   end
 
@@ -43,20 +45,21 @@ class PicturesController < ApplicationController
     @picture = Picture.find(params[:id]) 
     
     @picture.picture_url = params[:picture][:picture_url]
-    
-    #@picture.user = User.find(params[:picture][:user_id])  # <<<=====FIX
-    
-    if @picture.save    #checks if UPDATE was successfull (TRUE)
-       
-      #obejct saved to DB, ID assigned, redirected to GET page
-      redirect_to picture_path(@picture)
-    else
-      redirect_to edit_picture_path(@picture)   #if failed reutrn to EDIT form 
-    end # end IF
+    @picture.caption = params[:picture][:caption]
+    @picture.city = params[:picture][:city]
+    @picture.country = params[:picture][:country]
 
-
+      if @picture.save    #checks if UPDATE was successfull (TRUE)
+        
+        #obejct saved to DB, ID assigned, redirected to GET page
+        redirect_to picture_path(@picture)
+      else
+        redirect_to edit_picture_path(@picture)   #if failed reutrn to EDIT form 
+      end # end IF
 
   end
+
+
 
   def destroy
 

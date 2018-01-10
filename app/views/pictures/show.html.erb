@@ -2,18 +2,18 @@
 <p>Find me in app/views/pictures/show.html.erb</p>
 
 <ul>
-<li><img id="" src="<%= @pictures.picture_url %>" width="200"></li>
-<li><%= @pictures.caption %></li>
+<li><img id="" src="<%= @picture.picture_url %>" width="200"></li>
+<li><%= @picture.caption %></li>
 <BR>
 <BR>
-<li>City: <%= @pictures.city %></li>
-<li>Country: <%= @pictures.country %></li>
-<li>Snapped By: <%= @pictures.user[:name] %></li>
+<li>City: <%= @picture.city %></li>
+<li>Country: <%= @picture.country %></li>
+<li>Snapped By: <%= @picture.user.name %></li>
 </ul>
 
 <BR>
-<%= link_to("Edit" , edit_picture_path(@pictures) ) %>
-<%= link_to("Delete" , picture_path(@pictures), method: "delete", data: {confirm: 'Are you sure?' }) %>
+<%= link_to("Edit" , edit_picture_path(@picture) ) %>
+<%= link_to("Delete" , picture_path(@picture), method: "delete", data: {confirm: 'Are you sure?' }) %>
 <br>
 
 

@@ -3,7 +3,7 @@
 
 <h1>Update your Snap</h1>
 
-<%= form_for @pictures do |f| %>
+<%= form_for @picture do |f| %>
     <%= f.text_field(:picture_url, placeholder: "Picture URL") %>
     <br>
     <br>
@@ -15,4 +15,4 @@
     <%= f.submit("Update Picture") %>
 <% end %>
 <BR>
- <%= link_to("Return" , picture_path(@pictures)) %>
+ <%= link_to("Return" , picture_path(@picture)) %>
