@@ -4,14 +4,24 @@ class CommentsController < ApplicationController
 
   def create
 
-    @picture = Picture.find(params[:id])
+    @picture = Picture.find(params[:picture_id])
 
-    picture.comment.create({
-    body: params[:comment][:body]
-    user: session[:user_id]
-    })
+    @comment = Comment.new(comment_params)
+ 
+    @comment.user_id = session[:user_id]       ##<<<===== FIX THIS
+                
+    @comment.picture = @picture    ##<<<===== Associate THIS PICTURE with THIS COMMENT, but through the current COMMENT!
 
-    redirect_to picture_path(@picture)
+    if @comment.save    #checks if CREATE was successfull (TRUE)
+
+      #obejct saved to DB, ID assigned, redirected to Show page
+      redirect_to picture_path(@picture)
+    else
+      redirect_to picture_path(@picture)    #if failed reutrn to NEW form 
+    end # end IF
+
+
+    
   end
 
   def edit
@@ -22,4 +32,11 @@ class CommentsController < ApplicationController
 
   def destroy
   end
+
+  private    #FOR SECURITY 
+  def comment_params
+    return params.require(:comment).permit(:body)
+  end
+
+
 end

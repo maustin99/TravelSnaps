@@ -22,12 +22,12 @@
 
 <h3> Comments</h3>
     <ul>
-        <% @comments.each do |c| %>
+        <% @comments.each do |c, c.picture_id == params[:id]| %>
             <li><%= c.body %></li>
             <p>-<%= c.user.name %></p>
         <% end %>
     </ul>
-<br>
+
 <!-- **** ADD COMMENT ******  -->
 <%= form_for [@picture, @comment] do |f| %>   <!-- #new note, start at PICTURE and point to COMMENT=CREATE page -->
     <%= f.text_field(:body, placeholder: "Comment") %>
