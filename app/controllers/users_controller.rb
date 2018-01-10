@@ -49,7 +49,16 @@ class UsersController < ApplicationController
 
     @user = User.find(params[:id])  #destroy  USER
 
+     #@user = Comment.select { |c| c.user_id == 11 }
+     #@user = Picture.select { |c| c.user_id == 11 }
+
+    @comments = Comment.all
+    @comments.destroy      #{ |c| c.user_id == params[:id].to_i }
+    
+
     if @user.destroy 
+
+
       redirect_to users_path
     end
     

@@ -28,8 +28,9 @@
                     <li><%= c.body %></li>
                     <p>-<%= c.user.name %></p>
                             <p>
-                            <%= link_to("Delete" , picture_comment_path(@picture, c), method: "delete", data: {confirm: 'Are you sure?' }) %>
-                            
+                            <% if session[:user_id] == @picture.user_id || session[:user_id] == c.user_id%>  <!--If owner of picture, delete all comments OR if not owner of picture, delete only personal comments -->
+                                <%= link_to("Delete" , picture_comment_path(@picture, c), method: "delete", data: {confirm: 'Are you sure?' }) %>
+                            <% end %>
                             </p>
             <% end %>
         <% end %>

@@ -11,7 +11,7 @@ class SessionsController < ApplicationController
 
     #check if email already exists
     @user = User.find_by_email(params[:email])
-    
+     
     #if user exists and password correct
     if @user && @user.authenticate(params[:password])
        #generate cookie with id and redirect
