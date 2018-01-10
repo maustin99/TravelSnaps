@@ -26,6 +26,9 @@
             <% if c.picture_id == params[:id].to_i %>
                     <li><%= c.body %></li>
                     <p>-<%= c.user.name %></p>
+                            <p>
+                            <%= link_to("Delete" , picture_comment_path(@picture), method: "delete", data: {confirm: 'Are you sure?' }) %>
+                            </p>
             <% end %>
         <% end %>
     </ul>
