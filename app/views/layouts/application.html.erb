@@ -14,8 +14,9 @@
 
  <body>
  <!--NAV BAR in /partials/_navbar.html.erb -->
-  <%= render 'partials/navbar' %>
-
+  <%  if logged_in? %>
+     <%= render 'partials/navbar' %>
+  <% end %>
     <% if logged_in? %>  <!--IF logged in, make logged in button -->
       Signed In As: <%= current_user.name %>
       <%= link_to("Logout", logout_path, method: 'delete') %>

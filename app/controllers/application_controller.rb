@@ -11,6 +11,7 @@ def current_user
   #BUT ONLY if the cookie even exists
   return @current_user ||= User.find(session[:user_id]) if session[:user_id] #if session[:user_id] exists
   
+  ### Another way to write this ####
     # if @current_user
   #   return @current_user
   # else
