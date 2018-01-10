@@ -1,6 +1,13 @@
 <h1>Sessions#new</h1>
 <p>Find me in app/views/sessions/new.html.erb</p>
 
+<% if flash[:danger] %>
+    <div class="alert alert-danger">
+        <%= flash[:danger] %>
+    </div>
+<% end %>
+
+
 <!-- form_tag is a basic form but will redirect to sessions_path on SUBMIT -->
 <!-- We don't have a Sessions MODEL-->
 <%= form_tag sessions_path,{:class => 'form-horizontal'} do %>
