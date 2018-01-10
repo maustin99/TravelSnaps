@@ -8,8 +8,13 @@
 <BR>
 <li>City: <%= @pictures.city %></li>
 <li>Country: <%= @pictures.country %></li>
-
+<li>Snapped By: <%= @pictures.user[:name] %></li>
 </ul>
 
 <BR>
+<%= link_to("Edit" , edit_picture_path(@pictures) ) %>
+<%= link_to("Delete" , picture_path(@pictures), method: "delete", data: {confirm: 'Are you sure?' }) %>
+<br>
+
+
 <BR>

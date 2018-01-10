@@ -3,6 +3,31 @@
 
 
 
-<h2>Name:  <%= @users.name %> </h2>
+<h2>Name:  <%= @user.name %> </h2>
 
-<h2>Email:  <%= @users.email %></h2>
+<h2>Email:  <%= @user.email %></h2>
+
+<hr>
+<BR>
+<%= link_to("Add a Picture" , new_picture_path(@user)) %>
+<BR>
+<BR>
+<ul>
+<% @pictures.each do |p|  %>
+    <% if p.user_id == params[:id].to_i %>
+        <li><img id="" src="<%= p.picture_url %>" width="200"></li>
+        <li><%= p.caption %></li>
+        <BR>
+        <li>City: <%= p.city %></li>
+        <li>Country: <%= p.country %></li>
+        <li>Snapped By: <%= p.user[:name] %></li>
+        <BR>
+        <%= link_to("Edit" , edit_picture_path(p) ) %>
+        <%= link_to("Delete" , picture_path(p), method: "delete", data: {confirm: 'Are you sure?' }) %>
+    <% end %><!-- END IF -->
+<% end %> <!-- END LOOP -->
+</ul>
+
+
+<br>
+

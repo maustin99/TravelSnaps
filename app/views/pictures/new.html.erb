@@ -1,2 +1,17 @@
 <h1>Pictures#new</h1>
 <p>Find me in app/views/pictures/new.html.erb</p>
+
+
+<h1>Add a Picture</h1>
+
+<%= form_for @pictures do |f| %>
+    <%= f.text_field(:picture_url, placeholder: "Picture URL") %>
+    <br>
+    <br>
+    <%= f.text_field(:caption, placeholder: "Caption") %>
+    <%= f.text_field(:city, placeholder: "City") %>
+    <%= f.text_field(:country, placeholder: "Country") %>
+    <br>
+    <br>
+    <%= f.submit("Post Picture") %>
+<% end %>
