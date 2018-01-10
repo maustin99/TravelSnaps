@@ -9,7 +9,8 @@ class PicturesController < ApplicationController
 
     @picture = Picture.find(params[:id])
     @comment = Comment.new
-
+    
+    @comments = Comment.all
 
   end
 
