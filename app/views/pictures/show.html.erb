@@ -12,9 +12,23 @@
 </ul>
 
 <BR>
-<%= link_to("Edit" , edit_picture_path(@picture) ) %>
-<%= link_to("Delete" , picture_path(@picture), method: "delete", data: {confirm: 'Are you sure?' }) %>
+
+<% if @picture.user == current_user %>
+    <%= link_to("Edit" , edit_picture_path(@picture) ) %>
+    <%= link_to("Delete" , picture_path(@picture), method: "delete", data: {confirm: 'Are you sure?' }) %>
+<% end %>
 <br>
 
 
+<h3> Comments</h3>
+
+<!-- **** ADD COMMENT ******  -->
+<%= form_for @comment, url: picture_comments_path(@picture) do |f| %>
+    <%= f.text_field(:body, placeholder: "Comment") %>
+    
+    <%= f.select :user,  current_user %>
+
+    <%= f.submit("Add Comment") %>
+<% end %>
+<!-- **** END COMMENT ******  -->
 <BR>

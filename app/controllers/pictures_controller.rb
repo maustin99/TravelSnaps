@@ -8,6 +8,8 @@ class PicturesController < ApplicationController
   def show
 
     @picture = Picture.find(params[:id])
+    @comment = Comment.new
+
 
   end
 
@@ -77,5 +79,9 @@ class PicturesController < ApplicationController
     return params.require(:picture).permit(:picture_url, :caption, :city, :country)
   end
 
+  private    #FOR SECURITY 
+  def comment_params
+    return params.require(:comment).permit(:body)
+  end
 
 end
