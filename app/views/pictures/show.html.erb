@@ -22,9 +22,11 @@
 
 <h3> Comments</h3>
     <ul>
-        <% @comments.each do |c, c.picture_id == params[:id]| %>
-            <li><%= c.body %></li>
-            <p>-<%= c.user.name %></p>
+        <% @comments.each do |c| %>
+            <% if c.picture_id == params[:id].to_i %>
+                    <li><%= c.body %></li>
+                    <p>-<%= c.user.name %></p>
+            <% end %>
         <% end %>
     </ul>
 
