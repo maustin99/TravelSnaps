@@ -8,7 +8,7 @@ class CommentsController < ApplicationController
 
     @comment = Comment.new(comment_params)
  
-    @comment.user_id = session[:user_id]       ##<<<===== FIX THIS
+    @comment.user_id = session[:user_id]        
                 
     @comment.picture = @picture    ##<<<===== Associate THIS PICTURE with THIS COMMENT, but through the current COMMENT!
 
@@ -31,6 +31,15 @@ class CommentsController < ApplicationController
   end
 
   def destroy
+
+    @comment = Comment.find(params[:id])
+    @picture = Picture.find(params[:picture_id]) #current picture
+
+
+    if @comment.destroy 
+        redirect_to picture_path(@picture)
+    end
+
   end
 
   private    #FOR SECURITY 
