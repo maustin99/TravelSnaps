@@ -49,12 +49,12 @@ class UsersController < ApplicationController
 
     @user = User.find(params[:id])
 
-    # if @kitty.update(user_params)
-    #   session[:user_id] = @user.id
-    #   redirect_to pictures_path
-    # else
-    #   redirect_to new_user_path     
-    # end
+    if @user.update(user_params)
+      session[:user_id] == @user.id
+        redirect_to user_path
+    else
+      redirect_to edit_user_path     
+    end
 
 
   end
