@@ -77,7 +77,7 @@ class PicturesController < ApplicationController
 
   private    #FOR SECURITY 
   def picture_params
-    return params.require(:picture).permit(:picture_url, :caption, :city, :country)
+    return params.require(:picture).permit(:picture_url, :caption, :city, :country, :rating)
   end
 
   private    #FOR SECURITY 

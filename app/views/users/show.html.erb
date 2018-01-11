@@ -6,7 +6,8 @@
 <h2>Name:  <%= @user.name %> </h2>
 
 <h2>Email:  <%= @user.email %></h2>
-
+<br>
+<%= link_to("Edit Account" , edit_user_path(params[:id]) ) %>
 <hr>
 <BR>
 <%= link_to("Add a Snap" , new_picture_path) %>

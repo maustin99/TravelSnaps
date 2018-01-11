@@ -40,21 +40,28 @@ class UsersController < ApplicationController
   end
 
   def edit
+
+    @user = User.find(params[:id]) 
+
   end
 
   def update
+
+    @user = User.find(params[:id])
+
+    # if @kitty.update(user_params)
+    #   session[:user_id] = @user.id
+    #   redirect_to pictures_path
+    # else
+    #   redirect_to new_user_path     
+    # end
+
+
   end
 
   def destroy
 
     @user = User.find(params[:id])  #destroy  USER
-
-     #@user = Comment.select { |c| c.user_id == 11 }
-     #@user = Picture.select { |c| c.user_id == 11 }
-
-    @comments = Comment.all
-    @comments.destroy      #{ |c| c.user_id == params[:id].to_i }
-    
 
     if @user.destroy 
 
