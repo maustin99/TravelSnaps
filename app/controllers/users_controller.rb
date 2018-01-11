@@ -30,6 +30,8 @@ class UsersController < ApplicationController
 
     @user = User.new(user_params)    #return ONLY the params we specified below
 
+    @user.profile_pic = "https://image.flaticon.com/icons/png/512/78/78373.png"
+
     if @user.save
       session[:user_id] = @user.id
       redirect_to pictures_path
@@ -74,7 +76,7 @@ class UsersController < ApplicationController
   private
   def user_params
 
-    return params.require(:user).permit(:name, :email, :password, :password_confirmation)
+    return params.require(:user).permit(:name, :email, :password, :password_confirmation, :profile_pic)
   end
 
 
