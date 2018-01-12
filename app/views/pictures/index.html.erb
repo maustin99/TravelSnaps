@@ -7,11 +7,12 @@
     </div>
 <% end %>
 
+<!-- 
 <h1>Pictures#index</h1>
 <p>Find me in app/views/pictures/index.html.erb</p>
-<%= link_to("Add a Snap" , new_picture_path) %>
-<br>
-<br>
+-->
+
+<p class="snapLinkOne"><%= link_to("Add a Snap" , new_picture_path) %></p>
 
 <% @pictures.each_slice(2) do |row| %>
   <div class="row">
@@ -23,7 +24,7 @@
                             <img id="" src="<%= g.picture_url %>" style="width:100%" class="img-thumbnail">
                             <% end %>    
                         <div class="caption">
-                            <p><%= link_to(g.caption, picture_path(g)) %></p>
+                            <p id="caption_title"><%= link_to(g.caption, picture_path(g)) %></p>
                             <p><i style="color:grey">Comments:</i></p>
                             
                                 <% g.comments.last(2).each do |x| %>
@@ -43,25 +44,9 @@
 <% end %>
 
 
-<div class="row" style ="">
-    
-            
-            
-                    <% @pictures.each do |p| %>
-                    <div class="col-md-6 col-sm" style ="border: 0px red solid">
-                        
 
 
-                    </div>  <!--END COLUMN -->
-                        <% end %>
-            
-    
-  </div> <!--END ROW -->
-
-
-<br>
-<br>
-<%= link_to("Add a Snap" , new_picture_path) %>
+<p class="snapLinkTwo"><%= link_to("Add a Snap" , new_picture_path) %></p>
 <br>
 <br>
 </div> <!--PAGE DIV -->
