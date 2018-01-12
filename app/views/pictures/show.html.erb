@@ -2,13 +2,13 @@
 <h1>Pictures#show</h1>
 <p>Find me in app/views/pictures/show.html.erb</p>
 
-<div class="row " style ="">   <!-- ROW DIV -->
-        <div class="col-md pictures_show_div" style ="border: 0px red solid"><!-- COL DIV -->
-            <div class="thumbnail rounded" style ="background-color: rgba(255,255,255,0.65)"><!-- BEGIN THUMBNAIL -->
+<div class="gallery" >   <!-- gallery DIV -->
+    <div id="thumbnail" ><!-- thumbnail DIV -->
+            <div class="rounded" style ="background-color: rgba(255,255,255,0.65)"><!-- BEGIN THUMBNAIL -->
                     <p>
                     <img id="" src="<%= @picture.picture_url %>" style="width:100%" class="img-responsive img-rounded" >
                     <div class="picture_caption_div">
-                            <span><%= @picture.caption %></span>
+                            <span class="index_show_span"><%= @picture.caption %></span>
                             <p><%= @picture.city %></p>
                             <p><%= @picture.country %></p>
                             <p>Snapped By: <%= link_to("#{@picture.user.name}", user_path(@picture.user), class: "nav-link") %></p>
@@ -16,7 +16,7 @@
 
                             <BR>
                             <br>
-                            <span style="font-size:10pt;">
+                            <span class="caption_title" style="">
                             <% if @picture.user == current_user %>
                                 <%= link_to("Edit" , edit_picture_path(@picture) ) %>
                                 <%= link_to("Delete" , picture_path(@picture), method: "delete", data: {confirm: 'Are you sure?' }) %>
@@ -51,5 +51,5 @@
                     <BR>
                     </div><!-- END COMMENTS DIV -->
         </div> <!-- END THUMBNAIL -->
-    </div> <!-- END COLUMN DIV -->
-</div> <!-- END ROW DIV -->
+    </div> <!-- END thumbnail DIV -->
+</div> <!-- END gallery DIV -->

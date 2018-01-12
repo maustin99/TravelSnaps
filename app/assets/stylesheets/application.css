@@ -1,3 +1,5 @@
+
+
 /*
  * This is a manifest file that'll be compiled into application.css, which will include all the files
  * listed below.
@@ -13,3 +15,95 @@
  *= require_tree .
  *= require_self
  */
+
+
+ body{
+    background-image: url("https://www.hawaiimagazine.com/sites/default/files/field/image/kauai-tor-hta.jpg");
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-position: top; 
+    background-size: cover;
+}
+
+#masterWrapper{
+    width:1200px;
+    margin-left: auto;
+    margin-right: auto;
+    border: 0px solid red;
+}
+
+
+/* ======== BEGIN PICTURES/INDEX ======  */
+
+#gallery{
+    border: 0px solid red;
+    width:100%;
+    }
+    
+    #thumbnail_outer div{
+        border: 0px solid blue;
+        border-radius: 15px 50px;
+    }
+
+#thumbnail_inner{
+    width:550px;
+    height:545px;
+   float: left;
+   
+   padding: 0px;
+    
+    margin:10px;
+    display: inline-block;
+}
+
+#thumbnail_box{
+    padding: 10px;
+}
+#thumbnail_box img{ border-radius: 15px 50px 15px 15px;
+                     border:2px solid white; }
+
+#index_caption p{
+        margin-left: 25px;
+
+        border: 0px solid red;
+}    
+
+
+.snapLink{ 
+            display:inline-table;
+            margin-top: 50px;
+            background-color: rgba(255,255,255,0.65);
+            padding:20px;
+            border-radius: 10px;
+        }
+/* ======== END PICTURES/INDEX ======  */
+
+/* ======== BEGIN PICTURES/SHOW ======  */
+
+.index_show_span{ margin: 0px 30px;
+    font-size: 20pt;
+    float: left;
+}
+
+.caption_title{
+    font-size:10pt;
+}
+
+.picture_caption_div p{
+    margin: 7px 10px;
+    float: left;
+}
+
+.pictures_show_comments_div{
+    clear:both;
+    padding: 20px 50px;
+    word-wrap: normal;
+
+}
+
+.pictures_show_comments_div ul{
+
+  
+    word-wrap: normal;
+
+}
