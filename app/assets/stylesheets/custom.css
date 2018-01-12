@@ -7,10 +7,14 @@
     background-size: cover;
 }
 
+#my_card{
+    background-color: rgba(255,255,255,0.65);
+    border-radius: 15px 50px;
 
- .rounded{
-    border-radius: 10px;
-    
+}
+
+.thumbnail img{
+    border-radius: 15px 50px 15px 15px;
 }
 
 
