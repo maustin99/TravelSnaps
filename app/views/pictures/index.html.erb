@@ -1,3 +1,5 @@
+<div id="pictures_main_div"> <!--PAGE DIV -->
+
 <% if flash[:success] %>
     <div class="alert alert-success">
         <%= flash[:success] %>
@@ -12,31 +14,37 @@
 <br>
 
 
-<div class="row">
-    <div class="col-md-4">
-            <div class="thumbnail"><!-- BEGIN THUMBNAIL -->
+<div class="row" style ="">
+    
+            
+            
                     <% @pictures.each do |p| %>
+                    <div class="col-md-6 col-sm" style ="border: 0px red solid">
+                        <div class="thumbnail" style ="background-color: rgba(255,255,255,0.65)"><!-- BEGIN THUMBNAIL -->
                             <%= link_to picture_path(p) do %>
                             <img id="" src="<%= p.picture_url %>" style="width:100%" class="img-thumbnail">
                             <% end %>    
                         <div class="caption">
                             <p><%= link_to(p.caption, picture_path(p)) %></p>
                             <p><i style="color:grey">Comments:</i></p>
-                            <p>
+                            
                                 <% p.comments.last(2).each do |x| %>
                                     <p><%= x.body %></p>
                                 <% end %>
-                            </p>
+                            
 
-                        </div>
+                        </div><!--END caption -->
+                        </div> <!-- END THUMBNAIL -->
+                    </div>  <!--END COLUMN -->
                         <% end %>
-            </div> <!-- END THUMBNAIL -->
-    </div>  <!--END COLUMN -->
+            
+    
   </div> <!--END ROW -->
 
 
-<BR>
-<BR>
+<br>
+<br>
 <%= link_to("Add a Snap" , new_picture_path) %>
 <br>
 <br>
+</div> <!--PAGE DIV -->

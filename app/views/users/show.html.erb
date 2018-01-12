@@ -7,11 +7,15 @@
 
 <h2>Email:  <%= @user.email %></h2>
 <br>
-
+<% if session[:user_id] == params[:id].to_i %>  <!--If owner of account is equal to owner of session, then SHOW account controls -->
 <%= link_to("Edit Account" , edit_user_path(params[:id]) ) %>
+<%= link_to("Delete Account" , user_path(current_user), method: "delete", data: {confirm: 'Are you sure?' }) %>
+<% end %>
 <hr>
 <BR>
+<% if session[:user_id] == params[:id].to_i%>  <!--If owner of account is equal to owner of session, then SHOW account controls -->
 <%= link_to("Add a Snap" , new_picture_path) %>
+<% end %>
 <BR>
 <BR>
 <ul>
@@ -29,8 +33,10 @@
         <li>Country: <%= p.country %></li>
         <li>Snapped By: <%= p.user[:name] %></li>
         <BR>
+        <% if session[:user_id] == params[:id].to_i%>  <!--If owner of account is equal to owner of session, then SHOW account controls -->
         <%= link_to("Edit" , edit_picture_path(p) ) %>
         <%= link_to("Delete" , picture_path(p), method: "delete", data: {confirm: 'Are you sure?' }) %>
+        <% end %>
     <% end %><!-- END IF -->
 <% end %> <!-- END LOOP -->
 </ul>
@@ -38,4 +44,6 @@
 
 <br>
 <BR>
+<% if session[:user_id] == params[:id].to_i%>  <!--If owner of account is equal to owner of session, then SHOW account controls -->
 <%= link_to("Add a Snap" , new_picture_path) %>
+<% end %>

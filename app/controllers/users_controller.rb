@@ -67,8 +67,9 @@ class UsersController < ApplicationController
 
     if @user.destroy 
 
+      session[:user_id] = nil
 
-      redirect_to users_path
+      redirect_to root_path
     end
     
   end

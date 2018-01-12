@@ -2,46 +2,54 @@
 <h1>Pictures#show</h1>
 <p>Find me in app/views/pictures/show.html.erb</p>
 
-<ul>
-<li><img id="" src="<%= @picture.picture_url %>" width="200"></li>
-<li><%= @picture.caption %></li>
-<BR>
-<BR>
-<li>City: <%= @picture.city %></li>
-<li>Country: <%= @picture.country %></li>
-<li>Snapped By: <%= @picture.user.name %></li>
-</ul>
-
-<BR>
-
-<% if @picture.user == current_user %>
-    <%= link_to("Edit" , edit_picture_path(@picture) ) %>
-    <%= link_to("Delete" , picture_path(@picture), method: "delete", data: {confirm: 'Are you sure?' }) %>
-<% end %>
-<br>
-
-
-<h3> Comments</h3>
-    <ul>
-        <% @comments.each do |c| %>
-            <% if c.picture_id == params[:id].to_i %>
-                    <li><%= c.body %></li>
-                    <p>-<%= c.user.name %></p>
-                            <p>
-                            <% if session[:user_id] == @picture.user_id || session[:user_id] == c.user_id%>  <!--If owner of picture, delete all comments OR if not owner of picture, delete only personal comments -->
-                                <%= link_to("Delete" , picture_comment_path(@picture, c), method: "delete", data: {confirm: 'Are you sure?' }) %>
-                            <% end %>
+<div class="row " style ="">   <!-- ROW DIV -->
+        <div class="col-md pictures_show_div" style ="border: 0px red solid"><!-- COL DIV -->
+            <div class="thumbnail rounded" style ="background-color: rgba(255,255,255,0.65)"><!-- BEGIN THUMBNAIL -->
+                    <p>
+                    <img id="" src="<%= @picture.picture_url %>" style="width:100%" class="img-responsive img-rounded" >
+                    <div class="picture_caption_div">
+                            <span><%= @picture.caption %></span>
+                            <p><%= @picture.city %></p>
+                            <p><%= @picture.country %></p>
+                            <p>Snapped By: <%= link_to("#{@picture.user.name}", user_path(@picture.user), class: "nav-link") %></p>
                             </p>
-            <% end %>
-        <% end %>
-    </ul>
 
-<!-- **** ADD COMMENT ******  -->
-<%= form_for [@picture, @comment] do |f| %>   <!-- #new note, start at PICTURE and point to COMMENT=CREATE page -->
-    <%= f.text_field(:body, placeholder: "Comment") %>
-    
-    
-    <%= f.submit("Add Comment") %>
-<% end %>
-<!-- **** END COMMENT ******  -->
-<BR>
+                            <BR>
+                            <br>
+                            <span style="font-size:10pt;">
+                            <% if @picture.user == current_user %>
+                                <%= link_to("Edit" , edit_picture_path(@picture) ) %>
+                                <%= link_to("Delete" , picture_path(@picture), method: "delete", data: {confirm: 'Are you sure?' }) %>
+                            <% end %>
+                            </span>
+                    </div>
+
+                    <div class="rounded pictures_show_comments_div" style ="background-color: rgba(255,255,255,0.65)"><!-- Comments DIV -->
+                    <h4> Comments</h4>
+                        <ul>
+                            <% @comments.each do |c| %>
+                                <% if c.picture_id == params[:id].to_i %>
+                                        <li><%= c.body %></li>
+                                        <p>-<%= c.user.name %></p>
+                                                <p>
+                                                <% if session[:user_id] == @picture.user_id || session[:user_id] == c.user_id%>  <!--If owner of picture, delete all comments OR if not owner of picture, delete only personal comments -->
+                                                    <%= link_to("Delete" , picture_comment_path(@picture, c), method: "delete", data: {confirm: 'Are you sure?' }) %>
+                                                <% end %>
+                                                </p>
+                                <% end %>
+                            <% end %>
+                        </ul>
+
+                    <!-- **** ADD COMMENT ******  -->
+                    <%= form_for [@picture, @comment] do |f| %>   <!-- #new note, start at PICTURE and point to COMMENT=CREATE page -->
+                        <%= f.text_field(:body, placeholder: "Write a comment...") %>
+                        
+                        
+                        <%= f.submit("Add Comment") %>
+                    <% end %>
+                    <!-- **** END COMMENT ******  -->
+                    <BR>
+                    </div><!-- END COMMENTS DIV -->
+        </div> <!-- END THUMBNAIL -->
+    </div> <!-- END COLUMN DIV -->
+</div> <!-- END ROW DIV -->
