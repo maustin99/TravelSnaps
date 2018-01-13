@@ -7,21 +7,26 @@
     background-size: cover;
 }
 
+/* ======== BEGIN PICTURES/INDEX ======  */
+
 #my_card{
     background-color: rgba(255,255,255,0.65);
     border-radius: 15px 50px;
+    
 
 }
+
+.thumbnail{  padding:0px 5px;  }
 
 .thumbnail img{
     border-radius: 15px 50px 15px 15px;
+    border:2px solid white;
+    margin:3px;
 }
 
-.caption{
-    padding:0 0 0 20px;
-}
+.caption{ margin-left:15px;  }
+
 #caption_title{
-
 
 }
 
@@ -42,24 +47,50 @@
 }
 
 
+/* ======== END PICTURES/INDEX ======  */
 
 
+
+/* ======== BEGIN PICTURES/SHOW ======  */
+
+.picture_caption_div p{
+    margin: 15px 10px 5px 10px;
+    float: left;
+    border: 0px blue solid;
+}
+
+
+#pictures_show_pic{
+    border-radius: 15px 50px 15px 15px;
+
+}
+
+#show_snapped_by{
+                
+}
 
 span{ margin: 0px 30px;
     font-size: 20pt;
     float: left;
 }
 
-.picture_caption_div p{
-    margin: 7px 10px;
-    float: left;
+#small_profile_pic{ width:50px; float:left; margin-top:15px; 
+    border-radius: 100px 100px; }
+#caption_title_show{    margin-top: 10px; }
+#show_span_links{    margin-top: 50px; }
+
+#show_span_links a{
+    margin-right: 10px;
+    
 }
+
 
 .pictures_show_comments_div{
     clear:both;
     padding: 20px 50px;
+    border-radius: 10px 10px 10px 50px;
     word-wrap: normal;
-
+    
 }
 
 .pictures_show_comments_div ul{
@@ -68,3 +99,57 @@ span{ margin: 0px 30px;
     word-wrap: normal;
 
 }
+
+/* ======== END PICTURES/SHOW ======  */
+
+
+/* ======== BEGIN USERS/SHOW ======  */
+
+#my_user_card{
+    background-color: rgba(255,255,255,0.65);
+    border-radius: 15px 50px;
+
+    padding: 15px 25px 15px 25px;
+    text-align: center;
+}
+
+#my_user_card img{ 
+    border-radius: 100px 100px;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+#my_user_card a{
+    margin-left:25px;
+}
+
+#user_show_pic_div p{
+   margin-left: 50px;
+}
+
+.col-sm-9{
+
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    border: 0px red solid;
+    
+}
+
+#caption_title_user{
+    font-size: 20pt;
+}
+
+#little_comments{
+    margin-top: 35px;
+}
+#little_links{ margin-left: 25px;}
+#little_links a {   
+                    float:left;
+                    padding:0px;   
+                    margin-left: 25px;      
+                }
+
+
+/* ======== BEGIN USERS/SHOW ======  */

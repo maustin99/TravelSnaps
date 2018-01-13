@@ -17,11 +17,11 @@
 <% @pictures.each_slice(2) do |row| %>
   <div class="row">
     <% row.each do |g| %>
-      <div class="col-sm-6">
-        <div class="card my_card" id="my_card">
+        <div class="col-sm-6">
+            <div class="card my_card" id="my_card">
                         <div class="thumbnail" ><!-- BEGIN THUMBNAIL -->
                             <%= link_to picture_path(g) do %>
-                            <img id="" src="<%= g.picture_url %>" style="width:100%" class="img-thumbnail">
+                            <img id="" src="<%= g.picture_url %>" style="width:100%" class="">
                             <% end %>    
                         <div class="caption">
                             <p id="caption_title"><%= link_to(g.caption, picture_path(g)) %></p>
@@ -36,11 +36,11 @@
                         </div> <!-- END THUMBNAIL -->
           <div class="card-body">
             <h5 class="card-title"></h5>
-          </div>
-        </div>
-      </div>
+          </div><!--END card-body DIV -->
+        </div><!--END MYCARD DIV -->
+      </div><!--END COL-6 DIV -->
     <% end %>
-  </div>
+  </div><!--END ROW DIV -->
 <% end %>
 
 
