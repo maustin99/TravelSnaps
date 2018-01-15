@@ -152,4 +152,54 @@ span{ margin: 0px 30px;
                 }
 
 
-/* ======== BEGIN USERS/SHOW ======  */
+/* ======== END USERS/SHOW ======  */
+
+/* ======== BEGIN USERS/EDIT ======  */
+
+#user_edit_card{
+    background-color: rgba(255,255,255,0.65);
+    border-radius: 15px 50px;
+
+    padding: 15px 25px 15px 25px;
+    
+    margin-top:25px;
+}
+#user_edit_card h1{  text-align: center;}
+#user_form_div{
+  width:50%;
+    margin-left: auto;
+    margin-right: auto;
+    border:0px solid red;
+}
+.form-group{ border:0px solid green; }
+
+/* ======== END USERS/EDIT ======  */
+
+
+
+/* ======== BEGIN PICTURES/EDIT ======  */
+
+    .quick_center{  
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+/* ======== END PICTURES/EDIT ======  */
+
+/* ======== BEGIN SHOW/NEW ======  */
+
+.quick_push_left{  
+    margin-left: 100px;
+    
+}
+
+
+/* ======== END SHOW/NEW ======  */
+
+
+/* ======== BEGIN USERS/NEW ======  */
+
+
+
+
+/* ======== END USERS/NEW ======  */
