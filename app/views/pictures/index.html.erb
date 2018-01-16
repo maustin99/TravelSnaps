@@ -19,36 +19,28 @@
     <% row.each do |g| %>
         <div class="col-sm-6">
             <div class="card my_card" id="my_card">
-                        <div class="thumbnail" ><!-- BEGIN THUMBNAIL -->
-                            <%= link_to picture_path(g) do %>
-                            <img id="" src="<%= g.picture_url %>" style="width:100%" class="">
-                            <% end %>    
-                        <div class="caption">
-                            <p id="caption_title"><%= link_to(g.caption, picture_path(g)) %></p>
-                            <p><i style="color:grey">Comments:</i></p>
-                            
-                                <% g.comments.last(2).each do |x| %>
-                                    <p><%= x.body %></p>
-                                <% end %>
-                            
-
-                        </div><!--END caption -->
-                        </div> <!-- END THUMBNAIL -->
-          <div class="card-body">
-            <h5 class="card-title"></h5>
-          </div><!--END card-body DIV -->
+                <div class="thumbnail" ><!-- BEGIN THUMBNAIL -->
+                    <%= link_to picture_path(g) do %>
+                        <img id="" src="<%= g.picture_url %>" style="width:100%" class="">
+                    <% end %>    
+                    <div class="caption">
+                        <p id="caption_title"><%= link_to(g.caption, picture_path(g)) %></p>
+                        <p><i style="color:grey">Comments:</i></p>
+                        <% g.comments.last(2).each do |x| %>
+                            <p><%= x.body %></p>
+                        <% end %>
+                </div><!--END caption -->
+            </div> <!-- END THUMBNAIL -->
+            <div class="card-body">
+                <h5 class="card-title"></h5>
+            </div><!--END card-body DIV -->
         </div><!--END MYCARD DIV -->
       </div><!--END COL-6 DIV -->
     <% end %>
   </div><!--END ROW DIV -->
 <% end %>
 
-                                         </div><!--END caption -->
-                                    </div> <!-- END THUMBNAIL INNER -->
-                            </div>  <!--END thumbnail  -->
-                            <% end %> <!-- end pictures EACH -->
-                    
-                </div> <!-- end thumbnail_outer -->
+                                         
        
         </div> <!--END gallery -->
 
