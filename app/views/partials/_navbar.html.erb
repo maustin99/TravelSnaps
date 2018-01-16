@@ -1,25 +1,42 @@
 
 
 <!-- BOOTSTRAP ADD IN -->
-  <nav class="navbar navbar-expand-lg navbar-light bg-light">
-  <a class="navbar-brand" href="/">TravelSnaps</a>
-  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-    <span class="navbar-toggler-icon"></span>
-  </button>
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
 
-  <div class="collapse navbar-collapse" id="navbarSupportedContent">
-    <ul class="navbar-nav mr-auto">
-      <li class="nav-item">
-       <%= link_to("Snaps", pictures_path, class: "nav-link") %>
-       <!--  <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a> -->
-      </li>
-      <li class="nav-item">
-          <%= link_to("My Snaps", user_path(current_user), class: "nav-link") %>
-        
-      </li>
 
-    </ul>
-  
-  </div>
+        <a class="navbar-brand" href="/">TravelSnaps</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+    
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+          <ul class="navbar-nav mr-auto">
+            <li class="nav-item">
+            <%= link_to("Snaps", pictures_path, class: "nav-link") %>
+            <!--  <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a> -->
+            </li>
+            <li class="nav-item">
+                <%= link_to("My Snaps", user_path(current_user), class: "nav-link") %>
+              
+            </li>
+
+          </ul>
+          </div><!-- END COLLAPSE -->
+
+           <div id="nav_right">
+          <% if logged_in? %>  <!--IF logged in, make logged in button --> 
+            Signed In As: <%= current_user.name %>
+            <%= link_to("Logout", logout_path, method: 'delete') %>
+          <% else %>
+            <%= link_to("Login", new_session_path) %>
+          <% end %>
+
+          
+        </div>
+        <div id="nav_right_right">
+          <%= link_to user_path(current_user) do %>
+                      <img id="small_profile_pic" src="<%= current_user.profile_pic %>" style="" class="">
+            <% end %>    
+        </div>
 </nav>
 
