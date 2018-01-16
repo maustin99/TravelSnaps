@@ -26,13 +26,17 @@
                         </span>
                     </div>
 
-                    <div class=" pictures_show_comments_div" style ="background-color: rgba(255,255,255,0.65)"><!-- Comments DIV -->
+                    <div class="pictures_show_comments_div" style ="background-color: rgba(255,255,255,0.65)"><!-- Comments DIV -->
                     <h4> Comments</h4>
                         <ul>
                             <% @comments.each do |c| %>
                                 <% if c.picture_id == params[:id].to_i %>
+                                        <%= link_to user_path(c.user) do %>
+                                                <img class="small_inline_pic" src="<%= c.user.profile_pic %>" style="" >
+                                        <% end %>
+                                        
                                         <li><%= c.body %></li>
-                                        <p>-<%= link_to("#{c.user.name}" , user_path(c.user)) %><%=  %></p>
+                                        <p>-<%= link_to("#{c.user.name}" , user_path(c.user)) %></p>
                                                 <p>
                                                 <% if session[:user_id] == @picture.user_id || session[:user_id] == c.user_id%>  <!--If owner of picture, delete all comments OR if not owner of picture, delete only personal comments -->
                                                     <%= link_to("Delete" , picture_comment_path(@picture, c), method: "delete", data: {confirm: 'Are you sure?' }) %>
