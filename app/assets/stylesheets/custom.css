@@ -1,6 +1,6 @@
 
  body{   
-    background-image: url("https://www.hawaiimagazine.com/sites/default/files/field/image/kauai-tor-hta.jpg");
+    background-image: url("");
     /*https://www.hawaiimagazine.com/sites/default/files/field/image/kauai-tor-hta.jpg  */
     background-repeat: no-repeat;
     background-attachment: fixed;
@@ -28,6 +28,10 @@
 #nav_right img{
     width:35px;
     float:right;
+}
+
+.img_snapslogo_icon{
+    width:45px;
 }
 
 /* ======== END NAV BAR ======  */
@@ -210,6 +214,10 @@ span{ margin: 0px 30px;
     border:0px solid red;
 }
 .form-group{ border:0px solid green; }
+
+.img_return_icon {
+    width:45px;
+}
 
 /* ======== END USERS/EDIT ======  */
 

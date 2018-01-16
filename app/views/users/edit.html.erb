@@ -58,8 +58,11 @@
                         </div>
                     </fieldset>
                 <% end %>
-            </div>  <!-- END user_form_div DIV -->      
+            </div>  <!-- END user_form_div DIV -->  
+        <%= link_to user_path(@user) do %>    
+        <%= image_tag 'return_arrow.png', class: 'img_return_icon' %>   
+        <% end %> 
         <%= link_to("Return" , user_path(@user)) %>
-        <%= image_tag('return_arrow.png') %>
+        
 
 </div>  <!-- END user_edit_card DIV -->

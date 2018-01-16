@@ -36,7 +36,8 @@ end
 def body_background_img
 
   if logged_in? && current_user.pictures.length > 0
-    return current_user.pictures.last.picture_url
+
+    return current_user.pictures.sample.picture_url
   else
     random_images = [
       'https://www.hawaiimagazine.com/sites/default/files/field/image/kauai-tor-hta.jpg',
