@@ -1,6 +1,7 @@
 
- body{
+ body{   
     background-image: url("https://www.hawaiimagazine.com/sites/default/files/field/image/kauai-tor-hta.jpg");
+    /*https://www.hawaiimagazine.com/sites/default/files/field/image/kauai-tor-hta.jpg  */
     background-repeat: no-repeat;
     background-attachment: fixed;
     background-position: top; 
@@ -83,6 +84,7 @@
 
 .picture_caption_div p{
     margin: 15px 10px 5px 10px;
+    padding:0 0 7px 0 ;
     float: left;
     border: 0px blue solid;
 }
@@ -252,3 +254,10 @@ span{ margin: 0px 30px;
 
 
 /* ======== END USERS/NEW ======  */
+
+.footnote{
+
+    text-align: center;
+    color: lightgrey;
+
+}
