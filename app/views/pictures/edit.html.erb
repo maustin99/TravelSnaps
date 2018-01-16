@@ -1,10 +1,12 @@
-<h1>Pictures#edit</h1>
-<p>Find me in app/views/pictures/edit.html.erb</p>
+<!-- <h1>Pictures#edit</h1>
+<p>Find me in app/views/pictures/edit.html.erb</p>  -->
+
+<div id="user_edit_card" class="col-md-7 quick_center">
 
 <h1>Update your Snap</h1>
 
 <%= form_for @picture do |f| %>
-    <%= f.text_field(:picture_url, placeholder: "Picture URL") %>
+    <%= f.text_field(:picture_url, placeholder: "Picture URL", :size => 65) %>
     <br>
     <br>
     <%= f.text_field(:caption, placeholder: "Caption") %>
@@ -16,3 +18,5 @@
 <% end %>
 <BR>
  <%= link_to("Return" , picture_path(@picture)) %>
+
+ </div>

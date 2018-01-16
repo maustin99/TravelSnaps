@@ -7,29 +7,41 @@
     </div>
 <% end %>
 
-<!--<h1>Pictures#index</h1>
-<p>Find me in app/views/pictures/index.html.erb</p> -->
-<%= link_to("Add a Snap" , new_picture_path) %>
-<br>
-<br>
+<!-- 
+<h1>Pictures#index</h1>
+<p>Find me in app/views/pictures/index.html.erb</p>
+-->
 
+<p class="snapLinkOne"><%= link_to("Add a Snap" , new_picture_path) %></p>
 
-        <div id="gallery" >
-                <div id="thumbnail_outer" >
-                            <% @pictures.each do |p| %>
-                            <div id="thumbnail_inner" >
-                                    <div id="thumbnail_box" style ="background-color: rgba(255,255,255,0.65)"><!-- BEGIN THUMBNAIL -->
-                                        <%= link_to picture_path(p) do %>
-                                        <img id="" src="<%= p.picture_url %>" style="width:100%" class="img-thumbnail">
-                                        <% end %>    
-                                        <div id="index_caption">
-                                            <p><%= link_to(p.caption, picture_path(p)) %></p>
-                                            <p><i style="color:grey">Comments:</i></p>
-                                            
-                                                <% p.comments.last(2).each do |x| %>
-                                                    <p><%= x.body %></p>
-                                                <% end %>
-                                            
+<% @pictures.each_slice(2) do |row| %>
+  <div class="row">
+    <% row.each do |g| %>
+        <div class="col-sm-6">
+            <div class="card my_card" id="my_card">
+                        <div class="thumbnail" ><!-- BEGIN THUMBNAIL -->
+                            <%= link_to picture_path(g) do %>
+                            <img id="" src="<%= g.picture_url %>" style="width:100%" class="">
+                            <% end %>    
+                        <div class="caption">
+                            <p id="caption_title"><%= link_to(g.caption, picture_path(g)) %></p>
+                            <p><i style="color:grey">Comments:</i></p>
+                            
+                                <% g.comments.last(2).each do |x| %>
+                                    <p><%= x.body %></p>
+                                <% end %>
+                            
+
+                        </div><!--END caption -->
+                        </div> <!-- END THUMBNAIL -->
+          <div class="card-body">
+            <h5 class="card-title"></h5>
+          </div><!--END card-body DIV -->
+        </div><!--END MYCARD DIV -->
+      </div><!--END COL-6 DIV -->
+    <% end %>
+  </div><!--END ROW DIV -->
+<% end %>
 
                                          </div><!--END caption -->
                                     </div> <!-- END THUMBNAIL INNER -->
@@ -40,11 +52,9 @@
        
         </div> <!--END gallery -->
 
- 
 
-</div> <!--END  DIV -->
 
-            
-        
-        <p class="snapLink"><%= link_to("Add a Snap" , new_picture_path) %></p>
-        
+<p class="snapLinkTwo"><%= link_to("Add a Snap" , new_picture_path) %></p>
+<br>
+<br>
+</div> <!--PAGE DIV -->

@@ -1,36 +1,38 @@
 
+<!--
 <h1>Pictures#show</h1>
 <p>Find me in app/views/pictures/show.html.erb</p>
+-->
 
-<div class="gallery" >   <!-- gallery DIV -->
-    <div id="thumbnail" ><!-- thumbnail DIV -->
-            <div class="rounded" style ="background-color: rgba(255,255,255,0.65)"><!-- BEGIN THUMBNAIL -->
-                    <p>
-                    <img id="" src="<%= @picture.picture_url %>" style="width:100%" class="img-responsive img-rounded" >
+<div class="row " style ="">   <!-- ROW DIV -->
+        <div class="col-md-12 pictures_show_div" style ="border: 0px red solid"><!-- COL DIV -->
+            <div class="card" id="my_card" style =""><!-- BEGIN THUMBNAIL -->
+                    
+                    <img id="pictures_show_pic" src="<%= @picture.picture_url %>" style="width:100%" class="img-responsive img-rounded" >
                     <div class="picture_caption_div">
-                            <span class="index_show_span"><%= @picture.caption %></span>
+                            <span id="caption_title_show"><%= @picture.caption %></span>
                             <p><%= @picture.city %></p>
                             <p><%= @picture.country %></p>
-                            <p>Snapped By: <%= link_to("#{@picture.user.name}", user_path(@picture.user), class: "nav-link") %></p>
-                            </p>
-
-                            <BR>
-                            <br>
-                            <span class="caption_title" style="">
+                            <p id="show_snapped_by"> Snapped By: <%= link_to("#{@picture.user.name}", user_path(@picture.user), class: "nav-link") %></p>
+                            <%= link_to user_path(@picture.user) do %>
+                            <img id="small_profile_pic" src="<%= @picture.user.profile_pic %>" style="" class="">
+                            <% end %>   
+                            
+                        <span id="show_span_links" style="font-size:10pt;">
                             <% if @picture.user == current_user %>
                                 <%= link_to("Edit" , edit_picture_path(@picture) ) %>
                                 <%= link_to("Delete" , picture_path(@picture), method: "delete", data: {confirm: 'Are you sure?' }) %>
                             <% end %>
-                            </span>
+                        </span>
                     </div>
 
-                    <div class="rounded pictures_show_comments_div" style ="background-color: rgba(255,255,255,0.65)"><!-- Comments DIV -->
+                    <div class=" pictures_show_comments_div" style ="background-color: rgba(255,255,255,0.65)"><!-- Comments DIV -->
                     <h4> Comments</h4>
                         <ul>
                             <% @comments.each do |c| %>
                                 <% if c.picture_id == params[:id].to_i %>
                                         <li><%= c.body %></li>
-                                        <p>-<%= c.user.name %></p>
+                                        <p>-<%= link_to("#{c.user.name}" , user_path(c.user)) %><%=  %></p>
                                                 <p>
                                                 <% if session[:user_id] == @picture.user_id || session[:user_id] == c.user_id%>  <!--If owner of picture, delete all comments OR if not owner of picture, delete only personal comments -->
                                                     <%= link_to("Delete" , picture_comment_path(@picture, c), method: "delete", data: {confirm: 'Are you sure?' }) %>

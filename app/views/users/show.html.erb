@@ -1,49 +1,78 @@
-<h1>Users#show</h1>
+
+<!--<h1>Users#show</h1>
 <p>Find me in app/views/users/show.html.erb</p>
+-->
+<script>
+//alert('Alert in html');
+randomBackgroundPic();
+         
+ </script>
 
+<div id="user_show_namecard">
+    <div id="my_user_card">
+        <img id="" src="<%= @user.profile_pic %>" width="125" style="text-align: center;" >
+        <h2><%= @user.name %> </h2>
 
-<img id="" src="<%= @user.profile_pic %>" width="125" style="text-align: center;" >
-<h2>Name:  <%= @user.name %> </h2>
+        <h2><%= @user.email %></h2>
 
-<h2>Email:  <%= @user.email %></h2>
-<br>
-<% if session[:user_id] == params[:id].to_i %>  <!--If owner of account is equal to owner of session, then SHOW account controls -->
-<%= link_to("Edit Account" , edit_user_path(params[:id]) ) %>
-<%= link_to("Delete Account" , user_path(current_user), method: "delete", data: {confirm: 'Are you sure?' }) %>
-<% end %>
-<hr>
-<BR>
-<% if session[:user_id] == params[:id].to_i%>  <!--If owner of account is equal to owner of session, then SHOW account controls -->
-<%= link_to("Add a Snap" , new_picture_path) %>
-<% end %>
-<BR>
-<BR>
-<ul>
-<% @pictures.each do |p|  %>
-    <% if p.user_id == params[:id].to_i %>
-
-        <li>
-            <%= link_to picture_path(p) do %>
-            <img id="" src="<%= p.picture_url %>" width="200">
-            <% end %>
-        </li>
-        <li><%= p.caption %></li>
-        <BR>
-        <li>City: <%= p.city %></li>
-        <li>Country: <%= p.country %></li>
-        <li>Snapped By: <%= p.user[:name] %></li>
-        <BR>
-        <% if session[:user_id] == params[:id].to_i%>  <!--If owner of account is equal to owner of session, then SHOW account controls -->
-        <%= link_to("Edit" , edit_picture_path(p) ) %>
-        <%= link_to("Delete" , picture_path(p), method: "delete", data: {confirm: 'Are you sure?' }) %>
+        <% if session[:user_id] == params[:id].to_i %>  <!--If owner of account is equal to owner of session, then SHOW account controls -->
+        <%= link_to("Edit Account" , edit_user_path(params[:id]) ) %>
+        <%= link_to("Delete Account" , user_path(current_user), method: "delete", data: {confirm: 'Are you sure?' }) %>
         <% end %>
-    <% end %><!-- END IF -->
-<% end %> <!-- END LOOP -->
-</ul>
+        
 
+        
+     </div> <!--  END CARD -->
+</div>  <!--  END user_show_namecard -->
 
-<br>
-<BR>
-<% if session[:user_id] == params[:id].to_i%>  <!--If owner of account is equal to owner of session, then SHOW account controls -->
-<%= link_to("Add a Snap" , new_picture_path) %>
-<% end %>
+     <div id="user_show_pic_div">
+        
+        <% if session[:user_id] == params[:id].to_i%>  <!--If owner of account is equal to owner of session, then SHOW account controls -->
+        <p class="snapLinkOne"><%= link_to("Add a Snap" , new_picture_path) %></p>
+        <% end %>
+    
+   
+        <% @pictures.each do |p|  %>
+        <% if p.user_id == params[:id].to_i %>
+          <div class="col-sm-9" >
+            <div class="card my_card" id="my_card" style="padding: 0 0 15px 0;">
+                        <div class="thumbnail" ><!-- BEGIN THUMBNAIL -->
+                            <%= link_to picture_path(p) do %>
+                            <img id="" src="<%= p.picture_url %>" style="width:100%" class="">
+                            <% end %>    
+                        <div class="caption">
+                            <p id="caption_title_user"><%= link_to(p.caption, picture_path(p)) %></p>
+                                <p>City: <%= p.city %></p>
+                                <p>Country: <%= p.country %></p>
+                                <p>Snapped By: <%= p.user[:name] %></p>
+
+                            <!-- <div id="little_comments">
+                            <p><i style="color:grey">Comments:</i></p>
+                            
+                                <% p.comments.last(2).each do |x| %>
+                                    <p><%= x.body %></p>
+                                <% end %>
+                            </div> -->
+
+                            </div><!--END caption -->
+                        </div> <!-- END THUMBNAIL -->
+
+                <div id="little_links">
+                <% if session[:user_id] == params[:id].to_i%>  <!--If owner of account is equal to owner of session, then SHOW account controls -->
+                <%= link_to("Edit" , edit_picture_path(p) ) %>
+                <%= link_to("Delete" , picture_path(p), method: "delete", data: {confirm: 'Are you sure?' }) %>
+                <% end %>
+                </div>
+            </div><!--END MYCARD DIV -->
+      </div><!--END COL-6 DIV -->
+      <% end %> <!--END IF STAT -->
+      <% end %><!--END PIC LOOP -->
+
+      <% if session[:user_id] == params[:id].to_i%>  <!--If owner of account is equal to owner of session, then SHOW account controls -->
+        <p class="snapLinkTwo"><%= link_to("Add a Snap" , new_picture_path) %></p>
+        <% end %>
+
+    </div> <!-- END "user_show_pic_div" -->
+
+       
+        

@@ -14,29 +14,68 @@
   <!-- HIDE
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-  <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
- -->
-
+ <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.3/css/bootstrap.min.css" integrity="sha384-Zug+QiDoJOrZ5t4lssLdxGhVrurbmBWopoEl+M6BdEfwnCJZtKxi1KgxUyJq13dy" crossorigin="anonymous">
+ <!-- Mark's CSS --> 
+  <link rel="stylesheet" type="text/css" href="/app/assets/stylesheets/custom.css">
+  
 
   </head>
 
- <body>
+ <body style="background-image: url('<%= body_background_img %>')">
  <!--NAV BAR in /partials/_navbar.html.erb -->
-  <%  if logged_in? %>
-     <%= render 'partials/navbar' %>
-  <% end %>
-    <% if logged_in? %>  <!--IF logged in, make logged in button -->
-      Signed In As: <%= current_user.name %>
-      <%= link_to("Logout", logout_path, method: 'delete') %>
-    <% else %>
-      <%= link_to("Login", new_session_path) %>
-    <% end %>
-
-<div id="masterWrapper">
+ 
+        <%  if logged_in? %>
+          <%= render 'partials/navbar' %>
+        <% end %>
+     
+<div class="container">
 
     <%= yield %>
 
 </div>
+
+
+<p class="footnote">&copy; 2018 Travel Snaps</p>
+ 
+ <script>
+ //alert('Alert in  java');
+
+// var $backgroundArray = [
+//     { name: 'Background', image: 'https://www.hawaiimagazine.com/sites/default/files/field/image/kauai-tor-hta.jpg' }, 
+//     { name: 'Background', image: 'https://d1ljaggyrdca1l.cloudfront.net/wp-content/uploads/2017/03/lion-in-the-grass-in-serengeti-national-park-1600x900.jpg' }, 
+//     { name: 'Background', image: 'https://www.monde-du-voyage.com/republique-dominicaine/week-end-republique-dominicaine.jpg' }, 
+//     { name: 'Background', image: 'http://www.wallpapers13.com/wp-content/uploads/2017/09/Fitz-Roy-Mountain-in-South-America-Patagonia-between-Argentina-and-Chile-in-the-nearby-El-Chalt%C3%A9n-village-sunsets-Landscape-3840x2160-1024x768.jpg' } ,
+//     { name: 'Background', image: 'http://albaclub.ru/upload/iblock/6b7/6b7bfc159142ffbf363a2c02b9abdfb3.jpg' } ,
+// ];
+// var $currentPicArray = [
+//   { name: 'Background', image: 'https://www.hawaiimagazine.com/sites/default/files/field/image/kauai-tor-hta.jpg' }, 
+//     { name: 'Background', image: 'https://d1ljaggyrdca1l.cloudfront.net/wp-content/uploads/2017/03/lion-in-the-grass-in-serengeti-national-park-1600x900.jpg' }, 
+//     { name: 'Background', image: 'https://www.monde-du-voyage.com/republique-dominicaine/week-end-republique-dominicaine.jpg' }, 
+//     { name: 'Background', image: 'http://www.wallpapers13.com/wp-content/uploads/2017/09/Fitz-Roy-Mountain-in-South-America-Patagonia-between-Argentina-and-Chile-in-the-nearby-El-Chalt%C3%A9n-village-sunsets-Landscape-3840x2160-1024x768.jpg' } ,    { name: 'Background', image: 'http://albaclub.ru/upload/iblock/6b7/6b7bfc159142ffbf363a2c02b9abdfb3.jpg' } ,
+//     { name: 'Background', image: '<%=  %>' } 
+//     ];
+
+// //http://www.wallpapers13.com/wp-content/uploads/2017/09/Fitz-Roy-Mountain-in-South-America-Patagonia-between-Argentina-and-Chile-in-the-nearby-El-Chalt%C3%A9n-village-sunsets-Landscape-3840x2160-1600x1200.jpg
+
+// function randomBackgroundPic(){
+//         //alert('Alert in func java');
+//     <% if (defined? current_user.pictures.last.picture_url) == true || "method" %>
+//        //alert('Alert in the IF');
+//        $backgroundPic = $currentPicArray[Math.floor(Math.random() * ($backgroundArray.length))];
+//     <% else %>
+//          //alert('Alert in the ELSE');
+//         $backgroundPic = $backgroundArray[Math.floor(Math.random() * ($backgroundArray.length))];
+//     <% end %>
+        
+//     console.log( 'background  '  + $backgroundPic.image)
+    
+//     $("body").css("backgroundImage", "url(" + $backgroundPic.image + ")");
+//     return $backgroundPic
+
+// }
+
+ </script>
+
 
   </body>
 </html>
