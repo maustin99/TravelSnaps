@@ -140,12 +140,11 @@ span{ margin: 0px 30px;
 
   
     word-wrap: normal;
-
+    list-style-type: none;
 }
 
-
-
 /* ======== END PICTURES/SHOW ======  */
+
 
 
 /* ======== BEGIN USERS/SHOW ======  */
